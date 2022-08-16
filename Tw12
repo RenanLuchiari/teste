@@ -1,0 +1,90 @@
+#PASSO 1:
+#Considerar razao combustível/ar como estequiométrico 
+fi_esteq=0.0618
+
+#PASSO 2:
+#Obter R1 como funcao de Tw_1 e Eq. 8.7, usando 8.11
+
+#variaveis
+L=336/H**2  #H:qtd de hidrogenio na massa de combustível em porcentagem
+Dl=D_ft      #
+def lb(Dl):
+  if (lb==inner)
+    lb_in=1*Dl
+  if (lb==outer)
+    lb_out=1.2*Dl
+P_lista=[] #Lista pressão do gás em cada etapa
+q=fi_esteq
+tg_lista=[]
+
+sigma_boltzmann=5.67E-8
+Ew_inner=0.7        #emissividade Nimanic
+Ew_outer=0.4        #emissividade Aluminio
+
+#Eg=Emissivade gás
+def Eg(P_lista,L,q,lb,Tg_lista)
+  epsilon_gas=1-np.exp(-290*P_lista*L*(q*lb)**0.5*(Tg_lista)**-1.5)
+  
+#R1=radiation heat flux from gas
+def R1(sigma_boltzmann, Ew_inner, Eg, Tg_lista)
+  R1_calculo=0.5*sigma_boltzmann*(1+Ew_inner)*Eg*(Tg_lista)**1.5*(Tg_lista**1.5-Tw_1**2.5)
+  
+
+#PASSO 3
+#Obter R2 em função de Tw_2 eq. (8.24)
+
+#variaveis
+Z_inner=0.6        #emissividade Aço
+Z_outer=0.4        #emissividade Aluminio
+T3=498.42
+
+#R2=radiation heat flux to casing
+def R2(Z_inner,sigma_boltzmann, T3)
+  R2_calculo=Z_inner*sigma_boltzmann*(Tw_2**4-T3**4)
+  
+   
+#PASSO 4
+#Obter C1 em função de Tw_1 eq. (8.22) em ZP e (8.21) nas demais zonas
+
+#variaveis
+Al=A_ft
+U_g=        #Viscoidade dinâmica do gás
+k_g=        #Condutividade térmica do gás (produto da combustão)
+
+#C1_zp=convection heat flux from gas in zp
+def C1_zp(k_g,Dl,m_ponto_zp, Al, U_g, Tg_lista)
+  C1_zp_calculo=0.017*k_g/Dl**0.2*(m_ponto_zp/(Al*U_g))*(Tg_lista-Tw_1)
+  
+#C1=convection heat flux from gas in general
+def C1(k_g,Dl,m_ponto_g_lista, Al, U_g, Tg_lista)
+  C1_calculo=0.020*k_g/Dl**0.2*(m_ponto_g_lista/(Al*U_g))*(Tg_lista-Tw_1)
+
+
+
+#PASSO 5
+#Obter C2 em função de Tw_2 eq. (8.23)
+
+#variaveis
+K_ar=        #Condutividade térmica do ar em T3
+U_ar=        #Viscoidade dinâmica do ar em T3
+D_an= D_ref-D_ft
+
+
+Def C2(k_ar,D_an, m_ponto_an_lista, A_an, U_ar, T3)
+  C2_calculo=0.020*k_ar/D_an**0.2*(m_ponto_an_lista/(A_an*U_ar))*(Tw_2-T3)
+  
+  
+#PASSO 6
+#Substituir 8.25 para Tw_1 e Tw_2
+
+#variaveis
+thick_w=0.0005
+k_w=26
+
+def Razão_condutividade_temp(thick_w, k_w)
+  razao_condutividade_calculo=k_w/thick_w
+  
+print(R1_calculo+C1_calculo&"="&R2_calculo+C2_calculo&"="& razao_condutividade_calculo*(Tw_1-Tw_2)) #Visualizar igualdadfe
+
+
+  
